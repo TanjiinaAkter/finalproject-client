@@ -1,0 +1,22 @@
+.featured-img {
+  background-image: url(../../../assets//home//featured.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: -1;
+background-attachment: fixed;
+}
+.featured-img::before{
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right:0;
+    position: absolute;
+    content: '';
+    z-index: 1;
+}
