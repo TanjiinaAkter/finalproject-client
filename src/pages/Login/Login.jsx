@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 // 1.captcha code import korlam
 import {
   loadCaptchaEnginge,
@@ -11,6 +11,14 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  console.log(location, navigate);
+  //========== console.log(location.state); er console e ashe from{{pathname: '/secret', search: '', hash: '', state: null, key: 'gbis66dh'}}........ so location.state?.from.pathname  eita pacchi only jokhn private route e hit kortesi
+
+  // ekhane amra location er state e kore from ta pacchi karon amra private route e hit kortesilam tai...noyto home ba normal route theke login e hit korle null petam
+  const from = location.state?.from.pathname || "/";
   const { signIn } = useContext(AuthContext);
 
   const [disabled, setDisabled] = useState(true);
@@ -48,16 +56,18 @@ const Login = () => {
             animate__animated
             animate__fadeInUp
             animate__faster
-          `
+          `,
         },
         hideClass: {
           popup: `
             animate__animated
             animate__fadeOutDown
             animate__faster
-          `
-        }
+          `,
+        },
       });
+
+      navigate(from, { replace: true });
     });
   };
   return (

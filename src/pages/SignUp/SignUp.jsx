@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   // authentication
-  const { createuser } = useContext(AuthContext);
+  const { createuser, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
@@ -20,6 +23,22 @@ const SignUp = () => {
     createuser(data.email, data.password).then((result) => {
       const loggeduser = result.user;
       console.log(loggeduser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("profile updated");
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "user created successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     });
   };
   return (
@@ -54,6 +73,25 @@ const SignUp = () => {
                 {errors.name && (
                   <span className="text-red-600">
                     This name field is required
+                  </span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="photo"
+                  name="photo"
+                  // jei name field ta dibo oita dite hobe registered er moddhe
+                  {...register("photoURL", { required: true })}
+                  className="input input-bordered"
+                />
+                {/* jodi photourl e error thake tahole p tag dekhano hobe */}
+                {errors.photoURL && (
+                  <span className="text-red-600">
+                    photo url field is required
                   </span>
                 )}
               </div>
