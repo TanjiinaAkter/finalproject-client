@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
   // state e set kore dile ei path ta onno jayga theke access korte parbo..replace true dile user ager page e jete parbe na...browser theke history chole jabe ...update hoye jabe seta ... r state={{from: location}} mane hocche amra normally location e state k null hishebe pai ...ekhane amra sei state er moddhe location ta pass korchi login page e use korar jonno
 
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
-  //eita pathacchi..... from {pathname: '/secret', search: '', hash: '', state: null, key: 'yaprhxh3'}
+  //eita pathacchi..... from {pathname: '/secret', search: '', hash: '', state: null, key: 'yaprhxh3'}, mane hocche from key er object er moddhe value hisebe location purata diye dicchi
 };
 
 export default PrivateRoute;

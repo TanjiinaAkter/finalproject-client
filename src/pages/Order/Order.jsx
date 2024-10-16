@@ -12,12 +12,12 @@ const Order = () => {
   // eita amra btn e click kore jei info pete chai oita capture kore order compo te useparams diye pabo..mane amra route ta ekhane anlam///router e :category likhsilam tai oitar value pete category k distructure kore useparam diye pelam
   // hit kortesi btn e ei route e dynamic vabe seta ber korlam useparams diye
   const { category } = useParams();
-  console.log(category);
+  //console.log(category);
   const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
   const initialcategory = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialcategory);
   const [menu] = useMenu();
-  console.log(menu);
+  //console.log(menu);
   const salad = menu.filter((item) => item.category === "salad");
   const pizza = menu.filter((item) => item.category === "pizza");
   const soup = menu.filter((item) => item.category === "soup");

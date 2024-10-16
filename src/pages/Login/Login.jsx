@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 // 1.captcha code import korlam
 import {
@@ -9,15 +10,28 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location, navigate);
+  console.log(location);
   //========== console.log(location.state); er console e ashe from{{pathname: '/secret', search: '', hash: '', state: null, key: 'gbis66dh'}}........ so location.state?.from.pathname  eita pacchi only jokhn private route e hit kortesi
 
   // ekhane amra location er state e kore from ta pacchi karon amra private route e hit kortesilam tai...noyto home ba normal route theke login e hit korle null petam
+
+  //same code if else use kore korte pari optional chaining na diyeo #const location = useLocation(); // React Router's useLocation hook
+
+  // ====================================== let from = location;  // Initially assigning location to from
+
+  // // Check if location.state and location.state.from.pathname exist
+  // if (location.state && location.state.from && location.state.from.pathname) {
+  //   from = location.state.from.pathname;  // Assign the pathname if it exists
+  // } else {
+  //   from = "/";  // Default to "/" if pathname doesn't exist
+  // ======================================}
+
   const from = location.state?.from.pathname || "/";
   const { signIn } = useContext(AuthContext);
 
@@ -70,6 +84,7 @@ const Login = () => {
       navigate(from, { replace: true });
     });
   };
+  // const handleGoogleLogIn = () => {};
   return (
     <>
       <Helmet>
@@ -150,8 +165,10 @@ const Login = () => {
             <p className="p-4">
               <small className="text-red-600">
                 New here? <Link to="/signup">Create an account</Link>{" "}
-              </small>{" "}
+              </small>
             </p>
+            <div className="divider px-4"></div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

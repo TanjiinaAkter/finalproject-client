@@ -4,8 +4,12 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   // authentication
   const { createuser, updateUserProfile } = useContext(AuthContext);
@@ -13,28 +17,39 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
   //console.log(data) te amra registered function er field value pabo
   const onSubmit = (data) => {
     console.log(data);
-    //data er moddhe amra fields gulor value pacchi tai data.email eivabe pete hobe
+    //data er moddhe amra fields gulor value pacchi tai data.email eivabe pete hobe, eita react hook form er built in function maybe tai data dite hobe
     createuser(data.email, data.password).then((result) => {
       const loggeduser = result.user;
-      console.log(loggeduser);
+      //console.log(loggeduser);
+
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("profile updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "user created successfully",
-            showConfirmButton: false,
-            timer: 1500,
+          //console.log("profile updated");
+          //created users entry  to database
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            //console.log(res.data);
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "user created and (updated also first time in registration) successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
           });
-          navigate("/");
         })
         .catch((error) => {
           console.error(error);
@@ -159,7 +174,9 @@ const SignUp = () => {
                   Already registered? Go to login page
                 </small>
               </Link>
-            </p>
+            </p>{" "}
+            <div className="divider px-4"></div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

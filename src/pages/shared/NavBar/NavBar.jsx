@@ -1,35 +1,45 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  // tansttack query diye kora cart data nilam
+  const [cart] = useCart();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
       });
   };
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink activeClassName="active" to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/menu">Our menu</Link>
+        <NavLink activeClassName="active" to="/menu">Our menu</NavLink>
       </li>
 
       <li>
-        <Link to="/order/salad">Order food</Link>
+        <NavLink activeClassName="active" to="/order/salad">Order food</NavLink>
       </li>
       <li>
-        <Link to="/secret">Secret page</Link>
+        <NavLink activeClassName="active" to="/secret">Secret page</NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active" to="/dashboard/cart">
+          <button className="btn">
+            <FaShoppingCart />
+            <div className="badge badge-secondary">+{cart.length}</div>
+          </button>
+        </NavLink>
       </li>
       {user ? (
         <>
-          <span>{user.displayName}</span>
+          <span className="mt-2">{user.displayName}</span>
           <button onClick={handleLogOut} className="btn btn-ghost">
             Log out
           </button>
@@ -37,7 +47,7 @@ const NavBar = () => {
       ) : (
         <>
           <li>
-            <Link to="/login">Login</Link>
+            <NavLink activeClassName="active" to="/login">Login</NavLink>
           </li>
         </>
       )}
