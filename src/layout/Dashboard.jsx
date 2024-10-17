@@ -13,11 +13,15 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaShop } from "react-icons/fa6";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // cart collection anlam karon carte r info theke price ar length ta lagtese
   const [cart] = useCart();
-  const isAdmin = true;
+  //const isAdmin = true;
+
+  //ekhane isAdmin value nilam useAdmin.jsx theke admin check kore pawa ta
+  const [isAdmin] = useAdmin();
   return (
     <div className="flex">
       {/* SIDEBAR */}

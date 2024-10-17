@@ -3,8 +3,10 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useCart from "../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const Cart = () => {
+  const {user} = useAuth()
   const axiosSecure = useAxiosSecure();
   const [cart, refetch] = useCart();
   // 0 hocche initial man, total hocche 0+porer item er price jog korle ja hoy seta
@@ -37,6 +39,7 @@ const Cart = () => {
   return (
     <div className="">
       <h1 className="text-6xl">My Cart ({cart.length})</h1>
+      <h5 className="my-6 text-gray-600">user : ({user.email})</h5>
       <div className="divider"></div>
       <SectionTitle
         heading={"---My Cart"}
