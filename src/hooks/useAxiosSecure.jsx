@@ -15,7 +15,7 @@ const useAxiosSecure = () => {
     function (config) {
       //gese kina verifytoken middle ware e check korte server e jeye dekhbo asche kina
       const token = localStorage.getItem("access-token");
-      console.log(token);
+      //console.log(token);
       config.headers.authorization = `Bearer ${token}`;
       return config;
     },

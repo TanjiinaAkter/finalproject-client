@@ -34,9 +34,9 @@ const AuthProvider = ({ children }) => {
         const userInfo = {
           email: currentuser.email,
         };
-        console.log(userInfo);
+        //console.log(userInfo);
         axiosPublic.post("/jwt", userInfo).then((res) => {
-          console.log(res.data.token);
+          //console.log(res.data.token);
           // server theke token generate kore client e response hishebe paisi
           if (res.data.token) {
             // ekhane access-token ta hocche localStorage er ekta key ar res.data.token hocche key er value, jodi user thakle token ta res hoye ashe server theke tahole amra locastorage k bolbo  token k localstorage e set koro

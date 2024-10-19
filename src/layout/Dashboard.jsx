@@ -22,11 +22,13 @@ const Dashboard = () => {
 
   //ekhane isAdmin value nilam useAdmin.jsx theke admin check kore pawa ta
   const [isAdmin] = useAdmin();
+  //console.log(isAdmin)
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       {/* SIDEBAR */}
-      <div className="w-64 min-h-screen bg-[#86D293] text-white">
+      <div className="w-full md:w-64 min-h-screen bg-[#86D293] text-white">
         <ul className="menu p-4">
+          {/* admin er value true hole admin home add items eisob dekhabe noyto user er li dehkhabe */}
           {isAdmin ? (
             <>
               <li>
@@ -36,7 +38,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="dashboard/addItems">
+                <NavLink to="/dashboard/addItems">
                   <FaUtensils></FaUtensils>
                   Add Items
                 </NavLink>
@@ -75,7 +77,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="dashboard/reservation">
+                <NavLink to="/dashboard/reservation">
                   <FaCalendar></FaCalendar>
                   Reservation
                 </NavLink>
