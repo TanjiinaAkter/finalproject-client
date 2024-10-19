@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+// import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { FaTrash, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
   // ============== baseUrl anlam axiosSecure hook theke ,kheal rakhte hobe jeno secure baseurl ani, not public baseurl =============//
@@ -10,7 +11,6 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-   
       const res = await axiosSecure.get("/users");
       console.log(users);
       return res.data;
@@ -18,7 +18,7 @@ const AllUsers = () => {
   });
   //============== MAKING AN USER  AS A ADMIN======//
   const handleMakeAdmin = (user) => {
-    // user k admin e update korte update korar jonno filed pathacchi server e... then condtion diye ditesi  update korte.. role btn e click krle admin hobe mane oi id ta admin 
+    // user k admin e update korte update korar jonno filed pathacchi server e... then condtion diye ditesi  update korte.. role btn e click krle admin hobe mane oi id ta admin
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
       // id pathaitesi jeta seerver e giye new field add korbe role=admin , pore response e update hoye ashbe then amra btn e click korle condotion dibo rol=admin thakle seta admin hoye modify hobe ..click na korle ja ache tai
       console.log(res.data);
@@ -64,11 +64,11 @@ const AllUsers = () => {
         <h2 className="text-3xl ">Total Users :{users.length}</h2>
       </div>
       {/* table */}
-      <div className="overflow-x-auto">
-        <table className="table table-zebra">
+      <div className="overflow-x-auto bg-white shadow-lg m-8 rounded-md">
+        <table className="table table-zebra ">
           {/* head */}
-          <thead>
-            <tr>
+          <thead className="">
+            <tr className="bg-[#81C79B] text-white text-base">
               <th></th>
               <th>Name</th>
               <th>Email</th>
