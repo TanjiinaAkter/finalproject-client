@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 const useCart = () => {
+  // usecart e specific user er order kora items pabo
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   //console.log(user);

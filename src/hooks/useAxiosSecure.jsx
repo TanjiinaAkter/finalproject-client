@@ -34,8 +34,9 @@ const useAxiosSecure = () => {
       console.log("status error in the inteerceptor", status);
       if (status === 401 || status === 403) {
         // ekhane token invalid holei logout kore dicchi...
-        await logOut();
+      
         navigate("/login");
+        await logOut();
       }
       return Promise.reject(error);
     }

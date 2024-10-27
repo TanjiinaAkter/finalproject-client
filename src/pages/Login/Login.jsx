@@ -16,7 +16,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location);
+  //console.log(location);
   //========== console.log(location.state); er console e ashe from{{pathname: '/secret', search: '', hash: '', state: null, key: 'gbis66dh'}}........ so location.state?.from.pathname  eita pacchi only jokhn private route e hit kortesi
 
   // ekhane amra location er state e kore from ta pacchi karon amra private route e hit kortesilam tai...noyto home ba normal route theke login e hit korle null petam

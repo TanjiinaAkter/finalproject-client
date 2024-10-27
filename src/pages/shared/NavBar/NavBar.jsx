@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 const NavBar = () => {
+  const [isAdmin] = useAdmin();
   const { user, logOut } = useContext(AuthContext);
   // tansttack query diye kora cart data nilam
   const [cart] = useCart();
@@ -11,23 +13,46 @@ const NavBar = () => {
     logOut()
       .then(() => {})
       .catch((error) => {
-        //console.log(error);
+        console.log(error);
       });
   };
   const navOptions = (
     <>
       <li>
-        <NavLink activeClassName="active" to="/">Home</NavLink>
+        <NavLink activeClassName="active" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="active" to="/menu">Our menu</NavLink>
+        <NavLink activeClassName="active" to="/menu">
+          Our menu
+        </NavLink>
       </li>
 
       <li>
-        <NavLink activeClassName="active" to="/order/salad">Order food</NavLink>
+        <NavLink activeClassName="active" to="/order/salad">
+          Order food
+        </NavLink>
       </li>
+
+      {user && isAdmin && (
+        <li>
+          <NavLink activeClassName="active" to="/dashboard/adminHome">
+            Dashboard
+          </NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <NavLink activeClassName="active" to="/dashboard/userHome">
+            Dashboard
+          </NavLink>
+        </li>
+      )}
       <li>
-        <NavLink activeClassName="active" to="/secret">Secret page</NavLink>
+        <NavLink activeClassName="active" to="/secret">
+          Secret page
+        </NavLink>
       </li>
       <li>
         <NavLink activeClassName="active" to="/dashboard/cart">
@@ -47,7 +72,9 @@ const NavBar = () => {
       ) : (
         <>
           <li>
-            <NavLink activeClassName="active" to="/login">Login</NavLink>
+            <NavLink activeClassName="active" to="/login">
+              Login
+            </NavLink>
           </li>
         </>
       )}

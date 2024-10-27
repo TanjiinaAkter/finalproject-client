@@ -42,13 +42,14 @@ const AuthProvider = ({ children }) => {
             // ekhane access-token ta hocche localStorage er ekta key ar res.data.token hocche key er value, jodi user thakle token ta res hoye ashe server theke tahole amra locastorage k bolbo  token k localstorage e set koro
             localStorage.setItem("access-token", res.data.token);
             //console.log(localStorage.getItem("access-token"));
+            setLoading(false);
           }
         });
       } else {
         // jodi user na thake tahole token ta remove kore dao,
         localStorage.removeItem("access-token");
+        setLoading(false);
       }
-      setLoading(false);
     });
     return () => {
       return unSubscribe();

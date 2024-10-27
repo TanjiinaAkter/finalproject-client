@@ -4,11 +4,13 @@ import useCart from "../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [cart, refetch] = useCart();
+  console.log(cart);
   // 0 hocche initial man, total hocche 0+porer item er price jog korle ja hoy seta
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const handleDelete = (id) => {
@@ -47,9 +49,17 @@ const Cart = () => {
       <div className="flex justify-evenly mb-8">
         <h2 className="text-4xl">Total Orders : {cart.length}</h2>
         <h2 className="text-4xl">Total price :$ {totalPrice.toFixed(2)} </h2>
-        <button className="btn bg-yellow-500 border-none text-white">
-          Pay
-        </button>
+        {cart.length ? (
+          <Link to="/dashboard/payment">
+            <button className="btn bg-yellow-500 border-none text-white">
+              Pay
+            </button>
+          </Link>
+        ) : (
+          <button disabled className="btn bg-yellow-500 border-none text-white">
+            Pay
+          </button>
+        )}
       </div>
       <div className="overflow-x-auto ">
         <table className="table w-full">
