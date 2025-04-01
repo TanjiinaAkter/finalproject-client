@@ -67,38 +67,28 @@ JobSeekerHub is an interactive job portal where users can explore job listings, 
 -Can make a user an admin
 
 ## Job Application & Tracking:
-✅ Users can apply for jobs directly
-✅ Jobs filtered based on skills, location, and industry
-✅ Application progress tracking
+- Users can apply for jobs directly after registration and login
+- Jobs filtered based on job title, location, and category based on fulltime, parttime,remote,hybrid
+- Application progress tracking
 
-🔹 Interview Scheduling System:
-✅ Users can see scheduled interview details, including:
+## Interview Scheduling System:
+- Users can see scheduled interview details, including: Date & Time,Job Location,Applied Position,Interviewer Email & Name
 
-Date & Time
+## Secure Authentication & Authorization:
+- Firebase Authentication (Email/Password)
+- JWT Authentication for backend security
 
-Job Location
+## Advanced Search & Filters:
+- Filter jobs based on job title, location, and category based on fulltime, parttime,remote,hybrid
 
-Applied Position
+## Resume & Profile Management:
+- Upload resumes 
+- View and edit profile information
 
-Interviewer Email & Name
+## Payment & Subscription (Future Implementation):
+- Stripe/Aamar Pay for premium job posts & subscriptions
 
-🔹 Secure Authentication & Authorization:
-✅ Firebase Authentication (Google Sign-in, Email/Password)
-✅ JWT Authentication for backend security
-
-🔹 Advanced Search & Filters:
-✅ Filter jobs based on skills, location, experience level
-✅ Search by company name, job title, or category
-
-🔹 Resume & Profile Management:
-✅ Upload & update resumes
-✅ View and edit profile information
-
-🔹 Payment & Subscription (Future Implementation):
-✅ Stripe/Aamar Pay for premium job posts & subscriptions
-
-🔹 Miscellaneous Features:
-✅ 404 Page for non-existing routes
-✅ Beautiful Animations using Framer Motion
-✅ Fully Responsive Design
+## Miscellaneous Features:
+- 404 Page for non-existing routes
+- Fully Responsive Design
 
