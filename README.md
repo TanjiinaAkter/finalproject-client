@@ -4,7 +4,7 @@
 
 
 ## Live Site - [Visit My Job Seeker website's live link](https://job-seeker-e20d7.web.app/)
-## Server side repo - [Backend Repository](https://github.com/TanjiinaAkter/job-seeker-server)
+## Server side repo - [Backend Repository]     https://github.com/TanjiinaAkter/job-seeker-server 
  
 ## Admin Login Credentials
 Email: admin@admin.com 
