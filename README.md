@@ -1,11 +1,14 @@
-# JobSeekerHub - A Job Portal Website 🚀
+# JobNest - A Job Portal Website 🏢
+
+![image](https://github.com/user-attachments/assets/326eb54b-3d3d-436c-9d7e-ff5c81a4152e)
 
 
+## Live Site - [Visit My Job Seeker website's live link](https://job-seeker-e20d7.web.app/)
+## Server side repo - [Visit My Job Seeker Backend Repository](https://github.com/TanjiinaAkter/job-seeker-server)
+ 
+## Admin Login Credentials
+Email: admin@admin.com 
 
-Live Site: Your Live Site Link
-🖥️ Server Side Repo: Backend Repository
-🛠 Admin Login Credentials
-Email: admin@admin.com
 Password: Asdf$$
 
 🛠 Technologies Used
