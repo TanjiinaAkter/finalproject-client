@@ -43,25 +43,30 @@ JobSeekerHub is an interactive job portal where users can explore job listings, 
 - Blogs page
 - User dashboard
 - Admin dashboard
-  
-Admin dashboard
-404 page
-Beautiful animations using 'Framer motion'
+- 404 page
 
 ## Features:
-🔹 User Dashboard:
-✅ View & apply for jobs
-✅ See interview schedules with date, time, job location, and interviewer details
-✅ Track application status (Pending, Approved, Rejected)
-✅ Save favorite jobs for later
+## User Dashboard:
+- User can see his/her profile information
+- User can edit their personal details
+- View & can apply for jobs and see details of of applied jobs 
+- See interview schedules with date, time, job location, and interviewer details
+- Track application status (Pending, Approved, Rejected)
+- Save favorite jobs for later
+- Can get recommandation jobs based on user location and skills
 
-🔹 Admin Dashboard:
-✅ Post new jobs & manage listings
-✅ View & update applicants’ status
-✅ View total users, total jobs, total applicants
-✅ Decline or approve applications
+## Admin Dashboard:
+- Admin can see his/her profile information
+- Admin can edit their personal details
+- Can see distribution of Job Application Statuses and Application Count Across Jobs
+- Post new jobs & manage job listings like edit,delete,view
+- Make Schedule for interview
+- View & update applicants’ status
+- View total users, total jobs, total applicants and details
+- Decline or approve applications
+-Can make a user an admin
 
-🔹 Job Application & Tracking:
+## Job Application & Tracking:
 ✅ Users can apply for jobs directly
 ✅ Jobs filtered based on skills, location, and industry
 ✅ Application progress tracking
