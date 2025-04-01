@@ -11,27 +11,44 @@ Email: admin@admin.com
 
 Password: Asdf$$
 
-🛠 Technologies Used
-Frontend:
-✅ HTML, CSS, Tailwind CSS, Daisy UI
-✅ JavaScript, React.js, React Router
-✅ Redux Toolkit, TanStack Query, Axios
-✅ Framer Motion for animations
+# Technologies Used
+## Frontend:
+- HTML, CSS, Tailwind CSS, Daisy UI
 
-Backend:
-✅ Node.js, Express.js, MongoDB, Mongoose
-✅ Firebase (For authentication + hosting)
-✅ JWT (JSON Web Token)
-✅ Nodemailer (For email notifications)
+- JavaScript, React.js, React Router
 
-Payment Integration:
-✅ Stripe, Aamar Pay (for secure transactions)
+- Redux Toolkit, TanStack Query, Axios
 
-📌 About the Project
-Overview:
-JobSeekerHub is an interactive job portal where users can explore job listings, apply for jobs, and receive personalized recommendations based on their skills and location. The platform also includes an Admin Dashboard for managing job postings and applicants.
+- Animate on scroll library for animations
 
-🚀 Features:
+## Backend:
+- Node.js, Express.js, MongoDB
+
+- Firebase (For authentication + hosting)
+
+- JWT (JSON Web Token)
+
+
+
+# About the Project
+## Overview:
+JobSeekerHub is an interactive job portal where users can explore job listings, apply for jobs, can see interview schedule of their applied jobs and receive personalized recommendations based on their skills and location. The platform also includes an Admin Dashboard for managing job postings and applicants. **The website has** :
+
+- Header
+- Footer
+- Homepage
+- Alljobs page
+- Job details page
+- About page
+- Blogs page
+- User dashboard
+- Admin dashboard
+  
+Admin dashboard
+404 page
+Beautiful animations using 'Framer motion'
+
+## Features:
 🔹 User Dashboard:
 ✅ View & apply for jobs
 ✅ See interview schedules with date, time, job location, and interviewer details
